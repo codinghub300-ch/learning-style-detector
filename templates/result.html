@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+<h1>🎯 Your Learning Style Profile</h1>
+
+<div class="result-box">
+
+    <h2>Processing</h2>
+    <p>{{ result["Processing"] }}</p>
+
+    <h2>Perception</h2>
+    <p>{{ result["Perception"] }}</p>
+
+    <h2>Input</h2>
+    <p>{{ result["Input"] }}</p>
+
+    <h2>Understanding</h2>
+    <p>{{ result["Understanding"] }}</p>
+
+</div>
+
+<h2>🎮 Recommended Activities</h2>
+
+<ul class="games-list">
+    {% for game in games %}
+    <li>
+        <a href="{{ game.url }}" target="_blank">
+            {{ game.style }} → Open Activity
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+<br>
+
+<a href="/">
+    <button>Take Quiz Again 🔄</button>
+</a>
+
+</div>
+
+</body>
+</html>
+
 
