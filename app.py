@@ -159,32 +159,5 @@ return render_template(
     games=selected_games
 )
 
-# scores = {
-#     "Processing": {"Active": 0, "Reflective": 0},
-#     "Perception": {"Sensing": 0, "Intuitive": 0},
-#     "Input": {"Visual": 0, "Verbal": 0},
-#     "Understanding": {"Sequential": 0, "Global": 0}
-# }
-
-# for i, answer in enumerate(answers):
-#     _, dim, style = questions[i]["options"][answer]
-#     scores[dim][style] += 1
-
-# final_result = {}
-
-# for dim, values in scores.items():
-#     styles = list(values.keys())
-
-#     if values[styles[0]] > values[styles[1]]:
-#         final_result[dim] = styles[0]
-#     elif values[styles[1]] > values[styles[0]]:
-#         final_result[dim] = styles[1]
-#     else:
-#         final_result[dim] = "Balanced"
-
-# return jsonify(final_result)
-
-
 if __name__ == "main":
   app.run(debug=True)
-
