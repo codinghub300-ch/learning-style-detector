@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Style Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+<h1>📝 Learning Style Quiz</h1>
+
+<form id="quizForm">
+
+    {% for q in questions %}
+    <div class="question">
+
+        <h3>{{ loop.index }}. {{ q.text }}</h3>
+
+        <label>
+            <input type="radio"
+                   name="q{{ loop.index0 }}"
+                   value="a"
+                   required>
+            {{ q.options["a"][0] }}
+        </label>
+
+        <br><br>
+
+        <label>
+            <input type="radio"
+                   name="q{{ loop.index0 }}"
+                   value="b">
+            {{ q.options["b"][0] }}
+        </label>
+
+    </div>
+
+    <hr>
+
+    {% endfor %}
+
+    <button type="submit">
+        Show Result 🎯
+    </button>
+
+</form>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
 
