@@ -1,14 +1,14 @@
-document.getElementById("quizForm").addEventListener("submit", async function(e){
+document.getElementById("quizForm").addEventListener("submit", async function (e) {
 
 e.preventDefault();
 
-let answers=[];
+let answers = [];
 
-for(let i=0;i<12;i++){
+for (let i = 0; i < 12; i++) {
 
-    let answer=document.querySelector(`input[name="q${i}"]:checked`);
+    let answer = document.querySelector(`input[name="q${i}"]:checked`);
 
-    if(!answer){
+    if (!answer) {
         alert("Please answer all questions.");
         return;
     }
@@ -16,20 +16,21 @@ for(let i=0;i<12;i++){
     answers.push(answer.value);
 }
 
-const response=await fetch("/result",{
-    method:"POST",
-    headers:{
-        "Content-Type":"application/json"
+const response = await fetch("/result", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
     },
-    body:JSON.stringify(answers)
+    body: JSON.stringify(answers)
 });
 
-const data=await response.json();
+const data = await response.json();
 
-localStorage.setItem("result",JSON.stringify(data));
-
-window.location="/show_result";
-
+if (data.success) {
+    window.location = "/show_result";
+}
+else {
+    alert("Something went wrong.");
+}
 
 });
-
