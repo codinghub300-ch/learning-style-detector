@@ -1,5 +1,8 @@
 # Learning Style Detector 
 
+Live Demo:
+https://learning-style-detector.vercel.app/
+
 An interactive Python-based Learning Style Detection System that identifies users’ preferred learning styles through quizzes, simulations, and personalized educational games.
 
 ---
